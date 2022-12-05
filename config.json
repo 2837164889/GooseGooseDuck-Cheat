@@ -1,0 +1,21 @@
+{
+
+  "cheat": {
+    "canDrawESP": false,
+    "drawLine": false,
+    "drawBox": false,
+    "showPlayerInfo": false
+  },
+
+  "text": {
+
+    "english": {
+
+    },
+
+    "korean": {
+
+    }
+
+  }
+}

@@ -253,20 +253,20 @@ void MainFunc(HMODULE hModule) {
 		if (initialize_config(conf_cont) == true) { appLog.AddLog(u8"[信息] 已成功从 config.json 加载设置\n"); }
 		else { appLog.AddLog(u8"[错误] 无法加载配置文件设置。使用默认设置...\n"); }
 
-		if (playerControllerHook()) appLog.AddLog(u8"[信息]成功创建并启用 playerController hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::PlayerController::updateRVA);
+		if (playerControllerHook()) appLog.AddLog(u8"[信息]成功创建并启用 playerController hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::PlayerController::fn_updateRVA);
 		else { appLog.AddLog(u8"[错误] 无法创建或启用 playerController hook.\n"); hooked = false; }
 
-		if (CineMachineHook()) appLog.AddLog(u8"[信息]成功创建并启用 CineMachine hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::cinemachine::damp);
+		if (CineMachineHook()) appLog.AddLog(u8"[信息]成功创建并启用 CineMachine hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::cinemachine::fn_damp);
 		else { appLog.AddLog(u8"[错误] 无法创建或启用 ChineMachine hook.\n"); hooked = false; }
 
 
-		if (GameManagerHook()) appLog.AddLog(u8"[信息]成功创建并启用 GameManager hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::GameManager::update);
+		if (GameManagerHook()) appLog.AddLog(u8"[信息]成功创建并启用 GameManager hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::GameManager::fn_update);
 		else { appLog.AddLog(u8"[错误] 无法创建或启用 GameManager hook.\n"); hooked = false; }
 
-		if (unityEngineCameraHook()) appLog.AddLog(u8"[信息]成功创建并启用 WorldToScreenPoint hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::unityEngineCamera::WorldToScreenPoint);
+		if (unityEngineCameraHook()) appLog.AddLog(u8"[信息]成功创建并启用 WorldToScreenPoint hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::unityEngineCamera::fn_WorldToScreenPoint);
 		else { appLog.AddLog(u8"[错误] 无法创建或启用 WorldToScreenPoint hook.\n"); hooked = false; }
 
-		if (localPlayerHook()) appLog.AddLog(u8"[信息]成功创建并启用 localPlayer hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::localPlayer::update);
+		if (localPlayerHook()) appLog.AddLog(u8"[信息]成功创建并启用 localPlayer hook. | %X\n", GetGameAssemblyBase(L"GameAssembly.dll") + GooseGooseDuck::localPlayer::fn_update);
 		else { appLog.AddLog(u8"[错误] 无法创建或启用 localPlayer hook.\n"); hooked = false; }
 
 		// define KIERO_USE_MINHOOK must be 1
